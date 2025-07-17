@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Sapo vs. Pancake - Cuộc Đua Thương Mại Xã Hội</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #073B4C, #118AB2);
+        }
+        .flowchart-step {
+            position: relative;
+            padding-left: 50px;
+            padding-bottom: 2rem;
+            border-left: 3px solid #FFD166;
+        }
+        .flowchart-step:last-child {
+            border-left: 3px solid transparent;
+        }
+        .flowchart-icon {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="gradient-bg text-white p-8 text-center shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Cuộc Đua Thương Mại Xã Hội</h1>
+        <p class="text-xl md:text-2xl font-light">Sapo vs. Pancake: Ai sẽ dẫn đầu thị trường Việt Nam?</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="market-overview" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-2" style="color: #118AB2;">Thị Trường Bùng Nổ</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Thương mại xã hội tại Việt Nam đang tăng trưởng với tốc độ chóng mặt, được thúc đẩy bởi các xu hướng công nghệ và hành vi người tiêu dùng mới.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-5xl font-extrabold" style="color: #FF6B6B;">10.21 tỷ $</p>
+                    <p class="text-lg font-medium text-gray-700 mt-2">Dự báo quy mô thị trường vào năm 2030</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-5xl font-extrabold" style="color: #06D6A0;">25.4%</p>
+                    <p class="text-lg font-medium text-gray-700 mt-2">Tốc độ tăng trưởng hàng năm (CAGR 2025-2030)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="competitors" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #118AB2;">Giới Thiệu Các Đối Thủ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-2xl font-bold mb-2">Pancake</h3>
+                    <p class="text-lg font-semibold text-blue-600 mb-4">Chuyên gia Facebook & Chatbot AI</p>
+                    <p class="text-gray-600">Là đối tác chính thức của Meta, Pancake có thế mạnh vượt trội trong việc tối ưu hóa bán hàng qua Facebook Messenger với sản phẩm Botcake chuyên dụng.</p>
+                    <button onclick="getCompetitiveAnalysis('Pancake')" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Phân tích tổng quan ✨</button>
+                    <div id="pancakeAnalysis" class="mt-4 p-3 bg-gray-50 rounded-lg text-sm text-gray-700 hidden"></div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg border-l-4" style="border-color: #06D6A0;">
+                    <h3 class="text-2xl font-bold mb-2">Sapo</h3>
+                    <p class="text-lg font-semibold mb-4" style="color: #06D6A0;">Nền tảng Omnichannel Toàn diện</p>
+                    <p class="text-gray-600">Cung cấp giải pháp quản lý hợp kênh mạnh mẽ, từ cửa hàng, website, sàn TMĐT đến mạng xã hội, phục vụ hơn 230,000+ doanh nghiệp.</p>
+                    <button onclick="getCompetitiveAnalysis('Sapo')" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Phân tích tổng quan ✨</button>
+                    <div id="sapoAnalysis" class="mt-4 p-3 bg-gray-50 rounded-lg text-sm text-gray-700 hidden"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="comparison" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #118AB2;">So Sánh Đối Đầu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-center mb-4">Quản lý Đa kênh</h3>
+                    <p class="text-center text-sm text-gray-500 mb-4">Sapo vượt trội với khả năng quản lý toàn diện trên nhiều nền tảng, trong khi Pancake tập trung chủ yếu vào Facebook.</p>
+                    <div class="chart-container">
+                        <canvas id="multichannelChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-center mb-4">Năng lực AI & Chatbot</h3>
+                     <p class="text-center text-sm text-gray-500 mb-4">Botcake của Pancake là một công cụ chuyên biệt mạnh mẽ. Sapo tích hợp AI vào hệ thống hợp kênh của mình.</p>
+                    <div class="chart-container">
+                        <canvas id="aiChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-center mb-4">Tích hợp Vận chuyển</h3>
+                     <p class="text-center text-sm text-gray-500 mb-4">Sapo mang lại sự linh hoạt vượt trội với mạng lưới đối tác vận chuyển rộng lớn, giúp người bán tối ưu chi phí.</p>
+                    <div class="chart-container">
+                        <canvas id="shippingChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-center mb-4">Chi phí & Khả năng Mở rộng</h3>
+                     <p class="text-center text-sm text-gray-500 mb-4">Mô hình giá của Sapo linh hoạt hơn, đặc biệt có lợi cho các doanh nghiệp muốn quản lý nhiều fanpage/gian hàng.</p>
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="swot" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #118AB2;">Phân Tích SWOT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Pancake</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-green-100 p-3 rounded" id="pancakeStrengths">
+                            <h4 class="font-bold text-green-800">Điểm mạnh</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Chuyên sâu Facebook</li>
+                                <li>Chatbot AI mạnh (Botcake)</li>
+                                <li>Đối tác Meta chính thức</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-100 p-3 rounded" id="pancakeWeaknesses">
+                            <h4 class="font-bold text-red-800">Điểm yếu</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Chi phí cao khi mở rộng</li>
+                                <li>Phức tạp khi sử dụng</li>
+                                <li>Hạn chế quản lý ngoài MXH</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded" id="pancakeOpportunities">
+                            <h4 class="font-bold text-blue-800">Cơ hội</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Thị trường MXH tăng trưởng</li>
+                                <li>Nhu cầu chatbot AI cao</li>
+                            </ul>
+                        </div>
+                        <div class="bg-yellow-100 p-3 rounded" id="pancakeThreats">
+                            <h4 class="font-bold text-yellow-800">Thách thức</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Đối thủ Omnichannel</li>
+                                <li>Yêu cầu tính năng đa dạng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Sapo</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-green-100 p-3 rounded" id="sapoStrengths">
+                            <h4 class="font-bold text-green-800">Điểm mạnh</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Hệ sinh thái Omnichannel</li>
+                                <li>Tích hợp vận chuyển đa dạng (8+)</li>
+                                <li>Chi phí linh hoạt</li>
+                                <li>Dễ mở rộng quy mô</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-100 p-3 rounded" id="sapoWeaknesses">
+                            <h4 class="font-bold text-red-800">Điểm yếu</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Ít chuyên sâu vào kênh cụ thể</li>
+                                <li>Tính năng có thể phức tạp</li>
+                                <li>Giới hạn lưu trữ gói web</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded" id="sapoOpportunities">
+                            <h4 class="font-bold text-blue-800">Cơ hội</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Nhu cầu quản lý hợp nhất</li>
+                                <li>Thị trường Live Commerce</li>
+                                <li>Doanh nghiệp cần mở rộng kênh</li>
+                            </ul>
+                        </div>
+                        <div class="bg-yellow-100 p-3 rounded" id="sapoThreats">
+                            <h4 class="font-bold text-yellow-800">Thách thức</h4>
+                            <ul class="list-disc list-inside mt-1">
+                                <li>Đối thủ chuyên biệt như Pancake</li>
+                                <li>Đổi mới công nghệ nhanh</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy" class="mb-12">
+             <h2 class="text-3xl font-bold text-center mb-8" style="color: #118AB2;">Lộ Trình Chiến Lược Cho Sapo</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Để giành lợi thế, Sapo cần tập trung vào việc khai thác các điểm mạnh cốt lõi và đổi mới trong các lĩnh vực then chốt của thương mại xã hội.</p>
+             <div class="max-w-2xl mx-auto">
+                <div class="flowchart-step">
+                    <div class="flowchart-icon bg-blue-500 text-white">1</div>
+                    <h3 class="font-bold text-xl mb-1">Tận Dụng Ưu thế Omnichannel</h3>
+                    <p class="text-gray-600" id="strategy1">Nhấn mạnh khả năng quản lý hợp nhất trên mọi kênh (cửa hàng, web, sàn, MXH) để tạo sự gắn kết sâu sắc và trở thành giải pháp toàn diện duy nhất cho doanh nghiệp.</p>
+                    <button onclick="getStrategyDetails('Tận Dụng Ưu thế Omnichannel', 'strategy1Details')" class="mt-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Gợi ý chi tiết ✨</button>
+                    <div id="strategy1Details" class="mt-2 p-2 bg-gray-50 rounded-lg text-xs text-gray-700 hidden"></div>
+                </div>
+                <div class="flowchart-step">
+                    <div class="flowchart-icon" style="background-color: #06D6A0; color: white;">2</div>
+                    <h3 class="font-bold text-xl mb-1">Đầu tư sâu vào AI & Cá nhân hóa</h3>
+                    <p class="text-gray-600" id="strategy2">Nâng cấp chatbot với NLP tiên tiến và khả năng siêu cá nhân hóa để cạnh tranh trực tiếp với Botcake, tạo ra trải nghiệm đàm thoại thông minh.</p>
+                    <button onclick="getStrategyDetails('Đầu tư sâu vào AI & Cá nhân hóa', 'strategy2Details')" class="mt-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Gợi ý chi tiết ✨</button>
+                    <div id="strategy2Details" class="mt-2 p-2 bg-gray-50 rounded-lg text-xs text-gray-700 hidden"></div>
+                </div>
+                <div class="flowchart-step">
+                    <div class="flowchart-icon" style="background-color: #FF6B6B; color: white;">3</div>
+                    <h3 class="font-bold text-xl mb-1">Đẩy mạnh Live Commerce</h3>
+                    <p class="text-gray-600" id="strategy3">Xây dựng công cụ quản lý đơn hàng, tồn kho thời gian thực và tích hợp chatbot trong livestream để chiếm lĩnh kênh bán hàng bùng nổ này.</p>
+                    <button onclick="getStrategyDetails('Đẩy mạnh Live Commerce', 'strategy3Details')" class="mt-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Gợi ý chi tiết ✨</button>
+                    <div id="strategy3Details" class="mt-2 p-2 bg-gray-50 rounded-lg text-xs text-gray-700 hidden"></div>
+                </div>
+                 <div class="flowchart-step">
+                    <div class="flowchart-icon" style="background-color: #FFD166; color: black;">4</div>
+                    <h3 class="font-bold text-xl mb-1">Tối ưu Giá & Trải nghiệm người dùng</h3>
+                    <p class="text-gray-600" id="strategy4">Cung cấp các gói giá cạnh tranh cho việc quản lý nhiều fanpage. Đảm bảo giao diện bán hàng trên MXH cực kỳ trực quan và dễ sử dụng.</p>
+                    <button onclick="getStrategyDetails('Tối ưu Giá & Trải nghiệm người dùng', 'strategy4Details')" class="mt-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-lg transition duration-300 ease-in-out transform hover:scale-105">✨ Gợi ý chi tiết ✨</button>
+                    <div id="strategy4Details" class="mt-2 p-2 bg-gray-50 rounded-lg text-xs text-gray-700 hidden"></div>
+                </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-6">
+        <p>Bằng cách thực thi các chiến lược này, Sapo không chỉ có thể cạnh tranh mà còn có tiềm năng dẫn đầu thị trường giải pháp bán hàng trên mạng xã hội tại Việt Nam.</p>
+    </footer>
+    
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        display: false
+                    },
+                    grid: {
+                        display: false,
+                    },
+                     border: {
+                        display: false
+                    }
+                },
+                x: {
+                   grid: {
+                        display: false
+                    },
+                     border: {
+                        display: false
+                    }
+                }
+            }
+        };
+        
+        const SapoColor = '#06D6A0';
+        const PancakeColor = '#118AB2';
+
+        new Chart(document.getElementById('multichannelChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Pancake', 'Sapo'],
+                datasets: [{
+                    label: 'Khả năng quản lý đa kênh',
+                    data: [6, 9],
+                    backgroundColor: [PancakeColor, SapoColor],
+                    borderColor: [PancakeColor, SapoColor],
+                    borderWidth: 1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('aiChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Sapo', 'Pancake'],
+                datasets: [{
+                    label: 'Năng lực AI & Chatbot',
+                    data: [7, 9],
+                    backgroundColor: [SapoColor, PancakeColor],
+                    borderColor: [SapoColor, PancakeColor],
+                    borderWidth: 1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('shippingChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Pancake', 'Sapo'],
+                datasets: [{
+                    label: 'Số đối tác vận chuyển',
+                    data: [5, 8],
+                    backgroundColor: [PancakeColor, SapoColor],
+                    borderColor: [PancakeColor, SapoColor],
+                    borderWidth: 1
+                }]
+            },
+            options: defaultChartOptions
+        });
+        
+        new Chart(document.getElementById('costChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Pancake', 'Sapo'],
+                datasets: [{
+                    label: 'Linh hoạt về chi phí & mở rộng',
+                    data: [5, 8],
+                    backgroundColor: [PancakeColor, SapoColor],
+                    borderColor: [PancakeColor, SapoColor],
+                    borderWidth: 1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        async function callGeminiAPI(prompt, outputElementId) {
+            const outputElement = document.getElementById(outputElementId);
+            outputElement.innerHTML = '<div class="text-center py-2"><div class="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900 inline-block"></div> Đang tạo...</div>';
+            outputElement.classList.remove('hidden');
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    outputElement.innerHTML = text;
+                } else {
+                    outputElement.innerHTML = 'Không thể tạo phản hồi. Vui lòng thử lại.';
+                }
+            } catch (error) {
+                console.error('Lỗi khi gọi API Gemini:', error);
+                outputElement.innerHTML = 'Đã xảy ra lỗi khi kết nối. Vui lòng thử lại.';
+            }
+        }
+
+        function getStrategyDetails(strategyText, outputElementId) {
+            const prompt = `Dựa trên chiến lược sau: "${strategyText}". Hãy đưa ra 3-5 gợi ý cụ thể và hành động chi tiết mà Sapo có thể thực hiện để triển khai chiến lược này. Trả lời bằng tiếng Việt, định dạng mỗi gợi ý là một gạch đầu dòng.`;
+            callGeminiAPI(prompt, outputElementId);
+        }
+
+        function getCompetitiveAnalysis(companyName) {
+            let strengths = '';
+            let weaknesses = '';
+            let opportunities = '';
+            let threats = '';
+
+            if (companyName === 'Pancake') {
+                strengths = document.getElementById('pancakeStrengths').querySelector('ul').innerText.replace(/\n/g, ', ');
+                weaknesses = document.getElementById('pancakeWeaknesses').querySelector('ul').innerText.replace(/\n/g, ', ');
+                opportunities = document.getElementById('pancakeOpportunities').querySelector('ul').innerText.replace(/\n/g, ', ');
+                threats = document.getElementById('pancakeThreats').querySelector('ul').innerText.replace(/\n/g, ', ');
+                outputElementId = 'pancakeAnalysis';
+            } else if (companyName === 'Sapo') {
+                strengths = document.getElementById('sapoStrengths').querySelector('ul').innerText.replace(/\n/g, ', ');
+                weaknesses = document.getElementById('sapoWeaknesses').querySelector('ul').innerText.replace(/\n/g, ', ');
+                opportunities = document.getElementById('sapoOpportunities').querySelector('ul').innerText.replace(/\n/g, ', ');
+                threats = document.getElementById('sapoThreats').querySelector('ul').innerText.replace(/\n/g, ', ');
+                outputElementId = 'sapoAnalysis';
+            }
+
+            const prompt = `Dựa trên phân tích SWOT sau cho ${companyName}: Điểm mạnh: ${strengths}. Điểm yếu: ${weaknesses}. Cơ hội: ${opportunities}. Thách thức: ${threats}. Hãy viết một đoạn văn ngắn (khoảng 50-70 từ) tóm tắt vị thế cạnh tranh tổng thể của ${companyName} trên thị trường. Trả lời bằng tiếng Việt.`;
+            callGeminiAPI(prompt, outputElementId);
+        }
+
+    </script>
+
+</body>
+</html>
