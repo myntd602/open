@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Phân tích CRM Lead và Chiến lược Tối ưu hóa Tỷ lệ Chuyển đổi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        .chart-container {
+            height: 400px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation-card {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .priority-high {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        .priority-medium {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+        .priority-low {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0 20px 0;
+            text-align: center;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+        }
+        .highlight {
+            background: #dbeafe;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-6xl mx-auto p-6">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                <i class="fas fa-chart-line mr-3"></i>
+                Báo cáo Phân tích CRM Lead và Chiến lược Tối ưu hóa
+            </h1>
+            <p class="text-xl text-gray-600">Phân tích đa chiều dữ liệu CRM lead và đề xuất giải pháp cải thiện tỷ lệ chuyển đổi</p>
+            <p class="text-sm text-gray-500 mt-2">Ngày báo cáo: 16/07/2025</p>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-star mr-2"></i>
+                Tóm tắt Điều hành
+            </h2>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="metric-card">
+                <div class="text-3xl font-bold">4,440</div>
+                <div class="text-sm">Tổng số Lead</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-3xl font-bold">117</div>
+                <div class="text-sm">Lead thành công</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-3xl font-bold">2.64%</div>
+                <div class="text-sm">Tỷ lệ chuyển đổi</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-3xl font-bold">13</div>
+                <div class="text-sm">Nguồn UTM</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-3xl font-bold">11</div>
+                <div class="text-sm">Nhân viên KD</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-3xl font-bold">13</div>
+                <div class="text-sm">Nhóm sản phẩm</div>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Insights Quan trọng
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                    <h4 class="font-semibold text-red-800">Vấn đề cấp bách</h4>
+                    <p class="text-sm text-red-700">46.7% lead chưa được đánh giá, tỷ lệ chuyển đổi thấp chỉ 2.64%</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                    <h4 class="font-semibold text-green-800">Cơ hội lớn</h4>
+                    <p class="text-sm text-green-700">Nguồn KD_tu_khai_thac có tỷ lệ chuyển đổi 11.64% - cao gấp 4 lần trung bình</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                    <h4 class="font-semibold text-yellow-800">Mất cân bằng</h4>
+                    <p class="text-sm text-yellow-700">Phân bổ lead không đều: 1 NV xử lý 1,639 lead, 1 NV chỉ 27 lead</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                    <h4 class="font-semibold text-blue-800">Tiềm năng</h4>
+                    <p class="text-sm text-blue-700">Lead "có nhu cầu ngay" đạt 43.24% tỷ lệ chuyển đổi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- UTM Source Analysis -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-link mr-2"></i>
+                Phân tích Nguồn UTM
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Phân bổ Lead theo Nguồn UTM</h3>
+                <div class="chart-container">
+                    <canvas id="utmSourceChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Tỷ lệ Chuyển đổi theo Nguồn UTM</h3>
+                <div class="chart-container">
+                    <canvas id="utmConversionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container mb-8">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nguồn UTM</th>
+                        <th>Tổng Lead</th>
+                        <th>Lead thành công</th>
+                        <th>Tỷ lệ chuyển đổi</th>
+                        <th>Đánh giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sale Tự Nhập</td>
+                        <td>1,907</td>
+                        <td>34</td>
+                        <td>1.78%</td>
+                        <td class="text-red-600">Cần tối ưu</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>KD_tu_khai_thac</td>
+                        <td>189</td>
+                        <td>22</td>
+                        <td>11.64%</td>
+                        <td class="text-green-600">Xuất sắc</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>997</td>
+                        <td>37</td>
+                        <td>3.71%</td>
+                        <td class="text-yellow-600">Khá tốt</td>
+                    </tr>
+                    <tr>
+                        <td>Google</td>
+                        <td>753</td>
+                        <td>21</td>
+                        <td>2.79%</td>
+                        <td class="text-yellow-600">Trung bình</td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td>277</td>
+                        <td>2</td>
+                        <td>0.72%</td>
+                        <td class="text-red-600">Yếu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sales Team Analysis -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-users mr-2"></i>
+                Phân tích Nhân viên Kinh doanh
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Phân bổ Lead theo Nhân viên</h3>
+                <div class="chart-container">
+                    <canvas id="salesTeamChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Tỷ lệ Chuyển đổi theo Nhân viên</h3>
+                <div class="chart-container">
+                    <canvas id="salesConversionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container mb-8">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nhân viên</th>
+                        <th>Tổng Lead</th>
+                        <th>Lead thành công</th>
+                        <th>Tỷ lệ chuyển đổi</th>
+                        <th>Đánh giá hiệu suất</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nguyễn Thị Thanh Hồng</td>
+                        <td>1,639</td>
+                        <td>31</td>
+                        <td>1.89%</td>
+                        <td class="text-red-600">Cần cải thiện</td>
+                    </tr>
+                    <tr>
+                        <td>Trần Quang Phúc</td>
+                        <td>812</td>
+                        <td>12</td>
+                        <td>1.48%</td>
+                        <td class="text-red-600">Cần cải thiện</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Nguyễn Thị Diễm My</td>
+                        <td>748</td>
+                        <td>44</td>
+                        <td>5.88%</td>
+                        <td class="text-green-600">Xuất sắc</td>
+                    </tr>
+                    <tr>
+                        <td>Lê Thị Vân Anh</td>
+                        <td>501</td>
+                        <td>22</td>
+                        <td>4.39%</td>
+                        <td class="text-green-600">Tốt</td>
+                    </tr>
+                    <tr>
+                        <td>Phạm Văn Đức</td>
+                        <td>298</td>
+                        <td>1</td>
+                        <td>0.34%</td>
+                        <td class="text-red-600">Cần hỗ trợ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Lead Potential Analysis -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-star-half-alt mr-2"></i>
+                Phân tích Mức độ Tiềm năng Lead
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Phân bổ Lead theo Đánh giá</h3>
+                <div class="chart-container">
+                    <canvas id="leadRatingChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Tỷ lệ Chuyển đổi theo Đánh giá</h3>
+                <div class="chart-container">
+                    <canvas id="ratingConversionChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold mb-4">Phân tích Chất lượng Lead</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-red-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-red-600">46.7%</div>
+                    <div class="text-sm text-red-700">Lead chưa được đánh giá</div>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-green-600">43.24%</div>
+                    <div class="text-sm text-green-700">Tỷ lệ chuyển đổi lead "có nhu cầu ngay"</div>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-yellow-600">13.7%</div>
+                    <div class="text-sm text-yellow-700">Lead không liên lạc được</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Analysis -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-box mr-2"></i>
+                Phân tích Sản phẩm/Dịch vụ
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Phân bổ Lead theo Sản phẩm</h3>
+                <div class="chart-container">
+                    <canvas id="productChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Xu hướng Lead theo Tháng</h3>
+                <div class="chart-container">
+                    <canvas id="monthlyTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Recommendations -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Khuyến nghị Chiến lược
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="recommendation-card priority-high">
+                <h3 class="text-lg font-semibold mb-3 text-red-800">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Ưu tiên Cao
+                </h3>
+                <ul class="space-y-2 text-sm">
+                    <li>• Thiết lập quy trình đánh giá lead bắt buộc trong 24h</li>
+                    <li>• Tăng cường đầu tư vào nguồn "KD_tu_khai_thac" (ROI cao nhất)</li>
+                    <li>• Đào tạo intensive cho nhân viên có tỷ lệ chuyển đổi < 2%</li>
+                    <li>• Xây dựng playbook xử lý lead chuẩn hóa</li>
+                </ul>
+            </div>
+            <div class="recommendation-card priority-medium">
+                <h3 class="text-lg font-semibold mb-3 text-yellow-800">
+                    <i class="fas fa-clock mr-2"></i>
+                    Ưu tiên Trung bình
+                </h3>
+                <ul class="space-y-2 text-sm">
+                    <li>• Cân bằng lại phân bổ lead giữa các nhân viên</li>
+                    <li>• Tối ưu hóa landing page cho nguồn Website</li>
+                    <li>• Triển khai lead scoring tự động</li>
+                    <li>• Thiết lập dashboard theo dõi real-time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="recommendation-card priority-low">
+            <h3 class="text-lg font-semibold mb-3 text-green-800">
+                <i class="fas fa-chart-line mr-2"></i>
+                Ưu tiên Thấp - Tối ưu hóa dài hạn
+            </h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                <li>• Phát triển chiến lược nurturing cho lead chưa sẵn sàng</li>
+                <li>• Tích hợp CRM với marketing automation</li>
+                <li>• Xây dựng hệ thống báo cáo tự động</li>
+                <li>• Đào tạo chuyên sâu kỹ năng bán hàng</li>
+            </ul>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section-header">
+            <h2 class="text-2xl font-bold">
+                <i class="fas fa-tasks mr-2"></i>
+                Kế hoạch Hành động
+            </h2>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="bg-red-100 p-4 rounded-lg mb-4">
+                        <i class="fas fa-calendar-alt text-2xl text-red-600 mb-2"></i>
+                        <h3 class="font-semibold text-red-800">Tuần 1-2</h3>
+                        <p class="text-sm text-red-700">Thiết lập quy trình đánh giá lead</p>
+                    </div>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>• Xây dựng form đánh giá lead</li>
+                        <li>• Đào tạo team về quy trình mới</li>
+                        <li>• Thiết lập KPI tracking</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="bg-yellow-100 p-4 rounded-lg mb-4">
+                        <i class="fas fa-users text-2xl text-yellow-600 mb-2"></i>
+                        <h3 class="font-semibold text-yellow-800">Tuần 3-4</h3>
+                        <p class="text-sm text-yellow-700">Cân bằng và đào tạo team</p>
+                    </div>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>• Phân bổ lại lead</li>
+                        <li>• Đào tạo intensive</li>
+                        <li>• Mentor 1-1 coaching</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 p-4 rounded-lg mb-4">
+                        <i class="fas fa-chart-line text-2xl text-green-600 mb-2"></i>
+                        <h3 class="font-semibold text-green-800">Tháng 2-3</h3>
+                        <p class="text-sm text-green-700">Tối ưu hóa và mở rộng</p>
+                    </div>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>• Mở rộng nguồn hiệu quả</li>
+                        <li>• Tự động hóa quy trình</li>
+                        <li>• Đo lường và cải tiến</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expected Results -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">
+                <i class="fas fa-target mr-2"></i>
+                Kết quả Kỳ vọng
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-3xl font-bold">5.5%</div>
+                    <div class="text-sm">Tỷ lệ chuyển đổi mục tiêu</div>
+                    <div class="text-xs opacity-75">(Tăng 108% so với hiện tại)</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">80%</div>
+                    <div class="text-sm">Lead được đánh giá</div>
+                    <div class="text-xs opacity-75">(Tăng từ 53.3% hiện tại)</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">30%</div>
+                    <div class="text-sm">Tăng trưởng revenue</div>
+                    <div class="text-xs opacity-75">(Từ cải thiện conversion)</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">60%</div>
+                    <div class="text-sm">Giảm thời gian xử lý</div>
+                    <div class="text-xs opacity-75">(Từ tự động hóa quy trình)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-gray-500">
+            <p class="text-sm">
+                <i class="fas fa-info-circle mr-1"></i>
+                Báo cáo được tạo tự động từ dữ liệu CRM - Cập nhật: 16/07/2025
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // UTM Source Distribution Chart
+        const utmCtx = document.getElementById('utmSourceChart').getContext('2d');
+        new Chart(utmCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Sale Tự Nhập', 'Facebook', 'Google', 'Website', 'KD_tu_khai_thac', 'Khác'],
+                datasets: [{
+                    data: [1907, 997, 753, 277, 189, 317],
+                    backgroundColor: ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // UTM Conversion Rate Chart
+        const utmConvCtx = document.getElementById('utmConversionChart').getContext('2d');
+        new Chart(utmConvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['KD_tu_khai_thac', 'Facebook', 'Google', 'Sale Tự Nhập', 'Website'],
+                datasets: [{
+                    label: 'Tỷ lệ chuyển đổi (%)',
+                    data: [11.64, 3.71, 2.79, 1.78, 0.72],
+                    backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sales Team Distribution Chart
+        const salesCtx = document.getElementById('salesTeamChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Thanh Hồng', 'Quang Phúc', 'Diễm My', 'Vân Anh', 'Văn Đức', 'Khác'],
+                datasets: [{
+                    label: 'Số lượng Lead',
+                    data: [1639, 812, 748, 501, 298, 442],
+                    backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y'
+            }
+        });
+
+        // Sales Conversion Rate Chart
+        const salesConvCtx = document.getElementById('salesConversionChart').getContext('2d');
+        new Chart(salesConvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Diễm My', 'Vân Anh', 'Thanh Hồng', 'Quang Phúc', 'Văn Đức'],
+                datasets: [{
+                    label: 'Tỷ lệ chuyển đổi (%)',
+                    data: [5.88, 4.39, 1.89, 1.48, 0.34],
+                    backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Lead Rating Distribution Chart
+        const ratingCtx = document.getElementById('leadRatingChart').getContext('2d');
+        new Chart(ratingCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Chưa đánh giá', 'Không liên lạc được', 'Đang tìm hiểu', 'Tương tác chưa thành công', 'Không có nhu cầu', 'Khác'],
+                datasets: [{
+                    data: [2074, 609, 601, 385, 309, 462],
+                    backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6', '#6b7280', '#10b981']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Rating Conversion Rate Chart
+        const ratingConvCtx = document.getElementById('ratingConversionChart').getContext('2d');
+        new Chart(ratingConvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Có nhu cầu ngay', 'Đang tìm hiểu', 'Chưa đánh giá', 'Tương tác chưa thành công', 'Không có nhu cầu'],
+                datasets: [{
+                    label: 'Tỷ lệ chuyển đổi (%)',
+                    data: [43.24, 7.32, 2.6, 0.26, 0.32],
+                    backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Product Chart
+        const productCtx = document.getElementById('productChart').getContext('2d');
+        new Chart(productCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['SOCIAL ONLINE V3', 'SAPO WEB', 'SAPO POS', 'SAPO GO', 'SAPO FOOD', 'Khác'],
+                datasets: [{
+                    data: [3620, 320, 180, 120, 80, 120],
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#6b7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Monthly Trend Chart
+        const monthlyCtx = document.getElementById('monthlyTrendChart').getContext('2d');
+        new Chart(monthlyCtx, {
+            type: 'line',
+            data: {
+                labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+                datasets: [{
+                    label: 'Số lượng Lead',
+                    data: [420, 580, 750, 1007, 680, 520, 483],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Tỷ lệ chuyển đổi (%)',
+                    data: [2.1, 2.8, 3.2, 2.9, 2.5, 2.3, 2.6],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
