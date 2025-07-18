@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Phân Tích Lead & Kế Hoạch Hành Động</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0056b3;
+            color: white;
+            font-weight: bold;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .highlight-bad {
+            background-color: #ffebee;
+            font-weight: bold;
+            color: #c62828;
+        }
+        .highlight-good {
+            background-color: #e8f5e9;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .strategy-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #eef7ff;
+            border-left: 5px solid #0056b3;
+            border-radius: 5px;
+        }
+        .strategy-section h3 {
+            margin-top: 0;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, "Courier New", monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Báo Cáo Phân Tích Toàn Diện & Kế Hoạch Hành Động Tối Ưu Hóa Tỷ Lệ Chuyển Đổi</h1>
+
+        <h2>1. Bảng Tổng Quan Hiệu Suất Theo Từng Gói Sản Phẩm</h2>
+        <p><em>*Tỷ lệ chuyển đổi = (Số Lead Thành Công) / (Số Lead Thành Công + Số Lead Thất Bại). Không tính các lead đang xử lý.</em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gói Sản Phẩm</th>
+                    <th>Tổng Số Lead</th>
+                    <th>Thành Công</th>
+                    <th>Thất Bại</th>
+                    <th>Đang Xử Lý</th>
+                    <th>Tỷ Lệ Chuyển Đổi*</th>
+                    <th>Nguồn Lead Chính</th>
+                    <th>Đánh Giá Sơ Bộ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SOCIAL ONLINE V3</strong></td>
+                    <td>722</td>
+                    <td>14</td>
+                    <td>370</td>
+                    <td>338</td>
+                    <td class="highlight-bad">3.6%</td>
+                    <td><code>google_ads</code></td>
+                    <td>Gói chủ lực, tạo ra doanh thu nhưng CR thấp, lead từ ads kém chất lượng.</td>
+                </tr>
+                <tr>
+                    <td><strong>SOCIAL START UP</strong></td>
+                    <td>240</td>
+                    <td>1</td>
+                    <td>115</td>
+                    <td>124</td>
+                    <td class="highlight-bad">0.9%</td>
+                    <td><code>facebook_ads</code></td>
+                    <td>Lượng lead rất lớn, CR cực thấp. Nguồn lực xử lý nhiều nhưng hiệu quả không cao.</td>
+                </tr>
+                <tr>
+                    <td><strong>WEB</strong></td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td class="highlight-good">50.0%</td>
+                    <td><code>google_ads</code>, <code>Tu_nhien</code></td>
+                    <td>CR cao nhất nhưng số lượng mẫu quá nhỏ để kết luận.</td>
+                </tr>
+                <tr>
+                    <td><strong>RETAIL PRO</strong></td>
+                    <td>10</td>
+                    <td>0</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td class="highlight-bad">0%</td>
+                    <td><code>google_ads</code>, <code>Tu_nhien</code></td>
+                    <td><strong>Báo động:</strong> Không có chuyển đổi nào.</td>
+                </tr>
+                <tr>
+                    <td><strong>OMNI PLUS</strong></td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td class="highlight-bad">0%</td>
+                    <td><code>google_ads</code>, <code>Tu_nhien</code></td>
+                    <td><strong>Báo động:</strong> Không có chuyển đổi, số lượng ít.</td>
+                </tr>
+                <tr>
+                    <td><strong>RETAIL START UP</strong></td>
+                    <td>18</td>
+                    <td>0</td>
+                    <td>18</td>
+                    <td>0</td>
+                    <td class="highlight-bad">0%</td>
+                    <td><code>facebook_ads</code>, <code>Chưa xác định</code></td>
+                    <td><strong>Báo động:</strong> Tỷ lệ thất bại 100%.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>2. Phân Tích Chi Tiết & Đánh Giá Từng Nhóm Gói Sản Phẩm</h2>
+        
+        <h3>2.1. Nhóm Chủ Lực nhưng Kém Hiệu Quả: <code>SOCIAL ONLINE V3</code> & <code>SOCIAL START UP</code></h3>
+        <ul>
+            <li><strong>Điểm chung:</strong> Chiếm đến <strong>96%</strong> tổng số lead, phụ thuộc nặng nề vào quảng cáo trả phí.</li>
+            <li><strong>Vấn đề cốt lõi:</strong> Chất lượng lead quảng cáo rất thấp, gây lãng phí nguồn lực Sale để sàng lọc lead "rác".</li>
+            <li><strong>Đánh giá:</strong> Gói <code>SOCIAL ONLINE V3</code> vẫn là "con bò sữa" duy nhất. Gói <code>SOCIAL START UP</code> đang là "cỗ máy đốt tiền" với CR gần như bằng không.</li>
+        </ul>
+
+        <h3>2.2. Nhóm Báo Động Đỏ (Conversion Rate = 0%): <code>RETAIL PRO</code>, <code>OMNI PLUS</code>, <code>RETAIL START UP</code></h3>
+        <ul>
+            <li><strong>Thực trạng:</strong> Tỷ lệ thất bại 100% trên các lead đã có kết quả.</li>
+            <li><strong>Giả thuyết về nguyên nhân:</strong>
+                <ol>
+                    <li>Sản phẩm chưa phù hợp thị trường (giá, tính năng).</li>
+                    <li>Truyền thông sai đối tượng.</li>
+                    <li>Năng lực tư vấn của NVKD cho các gói nâng cao còn yếu.</li>
+                    <li>Thiếu quy trình bán hàng riêng biệt cho các sản phẩm giá trị cao.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>2.3. Điểm Sáng Tiềm Năng: Gói <code>WEB</code> và Nguồn <code>Tự Nhiên</code></h3>
+        <ul>
+            <li><strong>Phân tích:</strong> Tỷ lệ chuyển đổi 50% từ nguồn <code>Tự Nhiên</code> là một tín hiệu cực kỳ tích cực.</li>
+            <li><strong>Bài học rút ra:</strong> Khách hàng tự tìm đến có nhu cầu thật và quyết tâm cao. Cần nhân rộng mô hình thành công của NVKD Tạ Thế Ninh.</li>
+        </ul>
+
+        <h2>3. Giải Pháp Chiến Lược Toàn Diện</h2>
+
+        <div class="strategy-section">
+            <h3>Mũi nhọn 1: Tái Cấu Trúc Hoạt Động Marketing & Tối Ưu Nguồn Lead</h3>
+            <ol>
+                <li><strong>Đối với kênh Ads: NGỪNG ĐỐT TIỀN, TẬP TRUNG VÀO CHẤT LƯỢNG.</strong>
+                    <ul>
+                        <li><strong>Action 1 (Ngay lập tức):</strong> Họp khẩn Marketing & Sales để tạm dừng các chiến dịch không hiệu quả.</li>
+                        <li><strong>Action 2 (Trong 1 tuần):</strong> Chuyển mục tiêu Google Ads sang "Lead chất lượng" với Offline Conversion Tracking. Sử dụng Facebook Lead Form có câu hỏi sàng lọc thay vì Messenger.</li>
+                        <li><strong>Action 3 (Dài hạn):</strong> Xây dựng lại chân dung khách hàng (ICP) cho từng gói sản phẩm và thiết kế chiến dịch riêng.</li>
+                    </ul>
+                </li>
+                <li><strong>Đẩy Mạnh Kênh Hiệu Quả Cao:</strong>
+                    <ul>
+                        <li><strong>Action 4:</strong> Tăng ngân sách cho SEO và Content Marketing, tập trung vào các chủ đề thu hút lead organic.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="strategy-section">
+            <h3>Mũi nhọn 2: Chuyên Môn Hóa Đội Ngũ Kinh Doanh & Cá Nhân Hóa Quy Trình Bán Hàng</h3>
+            <ol>
+                <li><strong>Phân luồng và chuyên môn hóa NVKD:</strong>
+                    <ul>
+                        <li><strong>Action 5:</strong> Chia đội Sales thành 2 nhóm: <strong>Hunter</strong> (chốt lead chất lượng cao) và <strong>Farmer</strong> (sàng lọc, nuôi dưỡng lead mass).</li>
+                    </ul>
+                </li>
+                <li><strong>Xây dựng kịch bản bán hàng riêng cho từng gói sản phẩm:</strong>
+                    <ul>
+                        <li><strong>Action 6:</strong> Tổ chức workshop xây dựng kịch bản tư vấn chuyên sâu cho các gói <code>RETAIL PRO</code>, <code>OMNI PLUS</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Training và Coaching:</strong>
+                    <ul>
+                        <li><strong>Action 7:</strong> Mời NVKD hiệu suất cao chia sẻ kinh nghiệm. Tổ chức các buổi role-play hàng tuần.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="strategy-section">
+            <h3>Mũi nhọn 3: Siết Chặt Kỷ Luật Dữ Liệu và Đo Lường Hiệu Quả</h3>
+            <ol>
+                <li><strong>Cải tổ hệ thống CRM:</strong>
+                    <ul>
+                        <li><strong>Action 8 (Ngay lập tức):</strong> Bắt buộc NVKD cập nhật lý do thất bại cụ thể, loại bỏ trạng thái "Cần lựa chọn đánh giá".</li>
+                    </ul>
+                </li>
+                <li><strong>Thiết lập KPI mới:</strong>
+                    <ul>
+                        <li><strong>Action 9:</strong> Bổ sung KPI về tỷ lệ chuyển đổi, tốc độ xử lý lead, và chất lượng cập nhật CRM vào hệ thống lương thưởng.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+</body>
+</html>
